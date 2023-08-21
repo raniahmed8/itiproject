@@ -43,6 +43,11 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('students/archive',[StudentController::class,'archive'])->name('students.archive');
     Route::post('students/restore/{id}',[StudentController::class,'restore'])->name('students.restore');
     Route::delete('students/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('students.deleteArchive');
+
+    Route::get('courses/archive',[CoursesController::class,'archive'])->name('courses.archive');
+    Route::post('courses/restore/{id}',[coursesController::class,'restore'])->name('courses.restore');
+    Route::delete('courses/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('courses.deleteArchive');
+    
     Route::resources([
         'instructors'=>InstructorController::class,
         'students'=>StudentController::class,
