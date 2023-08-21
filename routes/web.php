@@ -38,6 +38,27 @@ Route::middleware([
 Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin.index');
+Route::get('/home', function () {
+    return view('front.index');
+})->name('front.index');
+Route::get('/about', function () {
+    return view('front.about');
+})->name('front.about');
+
+Route::get('/contact', function () {
+    return view('front.contact');
+})->name('front.contact');
+Route::get('/courses', function () {
+    return view('front.courses');
+})->name('front.courses');
+Route::get('/instructors', function () {
+    return view('front.insructors');
+})->name('front.insructors');
+
+Route::get('/feedback', function () {
+    return view('front.feedback');
+})->name('front.feedback');
+
 
 Route::group(['prefix'=>'admin'],function(){
     Route::get('students/archive',[StudentController::class,'archive'])->name('students.archive');
