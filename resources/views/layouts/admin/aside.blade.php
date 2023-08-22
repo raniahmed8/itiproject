@@ -130,6 +130,17 @@
                 </span>
               </a>
             </li>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ route('courses.archive') }}" class="sidebar-nav-link">
+                  <span class="sidebar-nav-abbr">
+                    ST
+                  </span>
+                  <span class="sidebar-nav-name">
+                   Archive Courses
+                  </span>
+                </a>
+              </li>
             <li class="sidebar-nav-item">
               <a href="{{ route('departments.create') }}" class="sidebar-nav-link">
                 <span class="sidebar-nav-abbr">

@@ -65,8 +65,17 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('students/restore/{id}',[StudentController::class,'restore'])->name('students.restore');
     Route::delete('students/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('students.deleteArchive');
 
+<<<<<<< HEAD
     Route::get('instructors/createCourses/{id}',[InstructorController::class,'createCourses'])->name('instructors.createCourses');
     Route::post('instructors/addCourses',[InstructorController::class,'addCourses'])->name('instructors.addCourses');
+=======
+// <<<<<<< HEAD
+    Route::get('courses/archive',[CoursesController::class,'archive'])->name('courses.archive');
+    Route::post('courses/restore/{id}',[coursesController::class,'restore'])->name('courses.restore');
+    Route::delete('courses/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('courses.deleteArchive');
+    
+// =======
+>>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
     Route::get('instructors/archive',[InstructorController::class,'archive'])->name('instructors.archive');
     Route::post('instructors/restore/{id}',[InstructorController::class,'restore'])->name('instructors.restore');
     Route::delete('instructors/deleteArchive/{id}',[InstructorController::class,'deleteArchive'])->name('instructors.deleteArchive');
@@ -83,6 +92,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('topics/restore/{id}',[TopicController::class,'restore'])->name('topics.restore');
     Route::delete('topics/deleteArchive/{id}',[TopicController::class,'deleteArchive'])->name('topics.deleteArchive');
 
+// >>>>>>> f85bd5fe07ce52948f768f9d13d1de4c47057207
     Route::resources([
         'instructors'=>InstructorController::class,
         'students'=>StudentController::class,
