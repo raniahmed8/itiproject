@@ -16,7 +16,7 @@ class CoursesController extends Controller
     public function index()
     {
         $data=course::get();
-      
+
         return view('admin.courses.index',['data'=>$data]);
     }
 
@@ -27,7 +27,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-    
+
         return view('admin.courses.create');
     }
 
@@ -44,7 +44,7 @@ class CoursesController extends Controller
          'name'=> $request->name,
          'duration'=> $request->duration,
          'discribtion'=> $request->discribtion
-        
+
 
         ]);
         return redirect()->back()->with('msg','Added successsfully.....');
@@ -91,7 +91,7 @@ class CoursesController extends Controller
          'name'=> $request->name,
          'duration'=> $request->duration,
          'discribtion'=> $request->discribtion
-        
+
          ]);
         //   return redirect()->route('instructors.edit',$instructor['id'])->with('msg','updated..');
         return redirect()->route('courses.edit',$course['id'])->with('msg','updated..');
@@ -112,22 +112,28 @@ class CoursesController extends Controller
     }
 
     public function archive(){
-        $data= course::onlyTrashed()->select('id','name','duration','discribtion')->get();
-        return view('admin\courses\archive',['data'=>$data]);
+
+        // return $dept;
+        $data = course::onlyTrashed()->get();
+        return view('admin.courses.archive',['data'=>$data]);
+
     }
 
     public function restore($id){
         $course=course::withTrashed()->findOrFail($id);
         $course->restore();
-       return redirect()->back()->with('msg','Restored successsfully.....');
+
+       return redirect()->back()->with('msg','Restored successfully..');
+
+
     }
 
     public function deleteArchive($id){
         $course=course::withTrashed()->findOrFail($id);
         $course->forceDelete();
-        return redirect()->back()->with('msg','Deleted successsfully.....');
 
-        }
+        return redirect()->back()->with('msg','Deleted successfully..');
+    }
 
 }
 

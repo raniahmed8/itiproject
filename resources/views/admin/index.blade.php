@@ -153,7 +153,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <div class="card-header-title">Featured</div>
+          <div class="card-header-title">Courses</div>
 
           <nav class="card-header-actions">
             <a class="card-header-action" data-toggle="collapse" href="#card5" aria-expanded="false" aria-controls="card5">
@@ -179,7 +179,6 @@
         </div>
         <div class="card-body collapse show" id="card5">
           <h4 class="card-title">Get all information about Courses</h4>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <a href="{{ route('courses.index') }}" class="btn btn-primary">Go To Courses</a>
         </div>
       </div>

@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InstructorRequest;
+use App\Models\course;
 use App\Models\Department;
 use App\Models\Instructor;
+use Illuminate\Http\Request ;
+
+
 //use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -146,4 +150,17 @@ class InstructorController extends Controller
         $inst->forceDelete();
         return redirect()->back()->with('msg','Deleted successfully..');
     }
+
+    public function createCourses($id){
+        $courses=course::select('id','name')->get();
+        return view('admin.instructors.addCourses',['courses'=>$courses ,'id'=>$id]);
+    }
+
+
+    public function addCourses(Request $request){
+        // return $request;
+        $instructor=Instructor::findorfail($request->id);
+        $instructor->courses()->syncWithoutDetaching($request->courses);
+        return back();
+  }
 }

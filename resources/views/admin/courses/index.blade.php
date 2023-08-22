@@ -35,7 +35,7 @@
                           <th scope="col"> Name</th>
                           <th scope="col">duration</th>
                           <th scope="col">discribtion</th>
-                        
+
 
                         </tr>
                       </thead>
@@ -53,7 +53,7 @@
                             <td>{{ $value['name'] }}</td>
                             <td>{{ $value['duration'] }}</td>
                             <td>{{ $value['discribtion'] }}</td>
-                            
+
                           <td>
                           <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>
                             <a href="{{ route('courses.edit',$value['id']) }}" class="btn btn-sm btn-success">Edit</a>
@@ -61,7 +61,7 @@
                             <form style="display: inline-block" action="{{ route('courses.destroy',$value['id']) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="delete" class="btn btn-danger">
+                            <input type="submit" value="delete" class="btn  btn-sm btn-danger">
                             </form>
                           </td>
                         </tr>

@@ -65,6 +65,8 @@
                                 @method('DELETE')
                                 <input type="submit" value="delete" class="btn btn-sm btn-danger">
                             </form>
+                            <a href="{{ route('instructors.createCourses',$instructor['id']) }}" class="btn btn-sm btn-success">Courses</a>
+
                           </td>
                         </tr>
                         @empty

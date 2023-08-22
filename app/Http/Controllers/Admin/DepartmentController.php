@@ -17,7 +17,7 @@ class DepartmentController extends Controller
     {
         $data=Department::get();
         return view('admin.departments.index',['data'=>$data]);
-        
+
     }
 
     /**
@@ -44,11 +44,11 @@ class DepartmentController extends Controller
         Department::create([
             'id'=>$request->id,
             'name'=>$request->name,
-          
-   
+
+
            ]);
            return redirect()->back()->with('msg','Added successsfully.....');
-   
+
     }
 
     /**
@@ -72,7 +72,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $data = Department::findorfail($id);
-        return view('admin.departments.edit',['data'=>$data]); 
+        return view('admin.departments.edit',['data'=>$data]);
     }
 
     /**
@@ -103,5 +103,24 @@ class DepartmentController extends Controller
         $dep=Department::findorfail($id);
         $dep->delete();
         return redirect()->route('departments.index')->with('msg','deleted..');
+    }
+
+    public function archive(){
+        // return $dept;
+        $data = Department::onlyTrashed()->get();
+        return view('admin.departments.archive',['data'=>$data]);
+    }
+
+    public function restore($id){
+        $dept=Department::withTrashed()->findOrFail($id);
+        $dept->restore();
+       return redirect()->back()->with('msg','Restored successfully..');
+
+    }
+
+    public function deleteArchive($id){
+        $dept=Department::withTrashed()->findOrFail($id);
+        $dept->forceDelete();
+        return redirect()->back()->with('msg','Deleted successfully..');
     }
 }
