@@ -50,7 +50,6 @@
                   <div class="card-body collapse show" id="card1">
                     <form action="{{ route('courseInstructor.store') }}" enctype="multipart/form-data" method="post">
                     @csrf
-
                       <div class="form-group">
                         <label class="form-label" for="exampleInputPassword1">Instructor</label>
                         <select name="instructor_id">
@@ -78,7 +77,7 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="exampleInputEmail1">Evaluation</label>
-                        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Name" name="evaluation">
+                        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Evaluation" name="evaluation">
                         @error('evaluation')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

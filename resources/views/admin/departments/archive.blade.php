@@ -1,5 +1,13 @@
+{{-- @php
+  var_dump($data);
+  die();
+@endphp --}}
+
+
+
+
 @extends('layouts.admin.master')
-@section('title','All Courses')
+@section('title','All Departments')
 <div class="adminx-content">
     @section('bread-crumb')
             <!-- BreadCrumb -->
@@ -7,16 +15,16 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active  aria-current="page">All courses</li>
+                <li class="breadcrumb-item active  aria-current="page">All Departments</li>
               </ol>
             </nav>
            @endsection
            @section('content')
+           @if(Session::has('msg'))
+            <div class="alert alert-success">{{ Session::get('msg') }}</div>
+            @endif
             <div class="pb-3">
-                @if (Session::has('msg'))
-                <div class="alert alert-success"> {{ Session::get('msg') }}</div>
-                @endif
-              <h1>Cource Tables</h1>
+              <h1>Departments Table</h1>
             </div>
             <div class="row">
               <div class="col">
@@ -32,14 +40,12 @@
                             </label>
                           </th>
                           <th scope="col">ID</th>
-                          <th scope="col"> Name</th>
-                          <th scope="col">duration</th>
-                          <th scope="col">discribtion</th>
-
-
+                          <th scope="col">Name</th>
+                          <th scope="col">Actions</th>
                         </tr>
                       </thead>
                        <tbody>
+
                         @forelse ($data as $value)
                         <tr>
                           <th scope="row">
@@ -48,21 +54,19 @@
                               <span class="custom-control-indicator"></span>
                             </label>
                           </th>
-
                             <td>{{ $value['id'] }}</td>
                             <td>{{ $value['name'] }}</td>
-                            <td>{{ $value['duration'] }}</td>
-                            <td>{{ $value['discribtion'] }}</td>
-
                           <td>
-                          <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>
-                            <a href="{{ route('courses.edit',$value['id']) }}" class="btn btn-sm btn-success">Edit</a>
-                            {{-- <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-danger">Delete</a> --}}
-                            <form style="display: inline-block" action="{{ route('courses.destroy',$value['id']) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="delete" class="btn  btn-sm btn-danger">
+                            <form action="{{ route('departments.restore',$value['id']) }}" method="post" style="display: inline-block">
+                                @csrf
+                                <input type="submit" value="restore" class="btn btn-sm btn-success">
                             </form>
+                            <form action="{{ route('departments.deleteArchive',$value['id']) }}" method="post" style="display: inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                            </form>
+
                           </td>
                         </tr>
                         @empty

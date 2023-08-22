@@ -55,14 +55,17 @@
                             <td>{{ $value['discribtion'] }}</td>
 
                           <td>
-                          <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>
-                            <a href="{{ route('courses.edit',$value['id']) }}" class="btn btn-sm btn-success">Edit</a>
-                            {{-- <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-danger">Delete</a> --}}
-                            <form style="display: inline-block" action="{{ route('courses.destroy',$value['id']) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="delete" class="btn  btn-sm btn-danger">
+                            <form action="{{ route('courses.restore',$value['id']) }}" method="post" style="display: inline-block">
+                                @csrf
+                                <input type="submit" value="restore" class="btn btn-sm btn-success">
                             </form>
+                            <form action="{{ route('courses.deleteArchive',$value['id']) }}" method="post" style="display: inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                            </form>
+
+            
                           </td>
                         </tr>
                         @empty

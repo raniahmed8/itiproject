@@ -27,7 +27,7 @@ class TopicController extends Controller
     public function create()
     {
         $data=Topic::get();
-    
+
 
         return view('admin.topics.create',['data'=>$data]);
     }
@@ -43,11 +43,11 @@ class TopicController extends Controller
         Topic::create([
             'id'=>$request->id,
             'name'=>$request->name,
-          
-   
+
+
            ]);
            return redirect()->back()->with('msg','Added successsfully.....');
-   
+
     }
 
     /**
@@ -71,9 +71,9 @@ class TopicController extends Controller
     public function edit($id)
     {
         $data = Topic::findorfail($id);
-        return view('admin.topics.edit',['data'=>$data]); 
+        return view('admin.topics.edit',['data'=>$data]);
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -103,6 +103,25 @@ class TopicController extends Controller
         $dep=Topic::findorfail($id);
         $dep->delete();
         return redirect()->route('topics.index')->with('msg','deleted..');
+    }
+
+    public function archive(){
+        // return $dept;
+        $data = Topic::onlyTrashed()->get();
+        return view('admin.topics.archive',['data'=>$data]);
+    }
+
+    public function restore($id){
+        $topic=Topic::withTrashed()->findOrFail($id);
+        $topic->restore();
+       return redirect()->back()->with('msg','Restored successfully..');
+
+    }
+
+    public function deleteArchive($id){
+        $topic=Topic::withTrashed()->findOrFail($id);
+        $topic->forceDelete();
+        return redirect()->back()->with('msg','Deleted successfully..');
     }
 
 }

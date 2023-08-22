@@ -56,8 +56,8 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="exampleInputEmail1"> Name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" name="fname">
-                      
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" name="name">
+
                         <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
 
                       </div>
