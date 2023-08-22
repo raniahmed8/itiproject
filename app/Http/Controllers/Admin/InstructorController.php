@@ -126,4 +126,24 @@ class InstructorController extends Controller
         return redirect()->route('instructors.index')->with('msg','deleted..');
 
     }
+
+    public function archive(){
+        $depts=Department::select('id','name')->get();
+        // return $dept;
+        $instructors = Instructor::onlyTrashed()->get();
+        return view('admin.instructors.archive',['instructors'=>$instructors,'depts' =>$depts]);
+    }
+
+    public function restore($id){
+        $inst=Instructor::withTrashed()->findOrFail($id);
+        $inst->restore();
+       return redirect()->back()->with('msg','Restored successfully..');
+
+    }
+
+    public function deleteArchive($id){
+        $inst=Instructor::withTrashed()->findOrFail($id);
+        $inst->forceDelete();
+        return redirect()->back()->with('msg','Deleted successfully..');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\course;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\courseRequest;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -36,7 +37,7 @@ class CoursesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(courseRequest $request)
     {
         course::create([
          'id'=>$request->id,
@@ -109,6 +110,25 @@ class CoursesController extends Controller
          return redirect()->route('courses.index')->with('msg','Deleted successsfully.....');
 
     }
+
+    public function archive(){
+        $data= course::onlyTrashed()->select('id','name','duration','discribtion')->get();
+        return view('admin\courses\archive',['data'=>$data]);
+    }
+
+    public function restore($id){
+        $course=course::withTrashed()->findOrFail($id);
+        $course->restore();
+       return redirect()->back()->with('msg','Restored successsfully.....');
+    }
+
+    public function deleteArchive($id){
+        $course=course::withTrashed()->findOrFail($id);
+        $course->forceDelete();
+        return redirect()->back()->with('msg','Deleted successsfully.....');
+
+        }
+
 }
 
 
