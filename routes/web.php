@@ -1,13 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseInstructorController;
 use  App\Http\Controllers\Admin\InstructorController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\TopicController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CoursesController;
-use App\Http\Controllers\CourseInstructorController;
-use App\Http\Controllers\CousreInstructor;
+
 
 
 /*
@@ -64,6 +64,12 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('students/archive',[StudentController::class,'archive'])->name('students.archive');
     Route::post('students/restore/{id}',[StudentController::class,'restore'])->name('students.restore');
     Route::delete('students/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('students.deleteArchive');
+
+    Route::get('instructors/archive',[InstructorController::class,'archive'])->name('instructors.archive');
+    Route::post('instructors/restore/{id}',[InstructorController::class,'restore'])->name('instructors.restore');
+    Route::delete('instructors/deleteArchive/{id}',[InstructorController::class,'deleteArchive'])->name('instructors.deleteArchive');
+
+
     Route::resources([
         'instructors'=>InstructorController::class,
         'students'=>StudentController::class,
@@ -71,6 +77,7 @@ Route::group(['prefix'=>'admin'],function(){
         'topics'=>TopicController::class,
         'departments'=>DepartmentController::class,
         'courses'=>CoursesController::class,
+        // 'courseInstructor'=>CourseInstructorController::class,
         'courseInstructor'=>CourseInstructorController::class,
     ]);
 
