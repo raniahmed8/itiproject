@@ -109,16 +109,7 @@
               </a>
 
             </li>
-            <li class="sidebar-nav-item">
-                <a href="{{ route('students.archive') }}" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    ST
-                  </span>
-                  <span class="sidebar-nav-name">
-                   Archive Student
-                  </span>
-                </a>
-              </li>
+    
             <li class="sidebar-nav-item">
               <a href="{{ route('topics.create') }}" class="sidebar-nav-link">
                 <span class="sidebar-nav-abbr">
@@ -170,12 +161,50 @@
                   </span>
                 </a>
               </li>
-
-
             </ul>
           </li>
+          <li class="sidebar-nav-item">
+            <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#navArchive" aria-expanded="false" aria-controls="navTables">
+                <span class="sidebar-nav-icon">
+                  <i data-feather="align-justify"></i>
+                </span>
+                <span class="sidebar-nav-name">
+                    Archive
+                </span>
+                <span class="sidebar-nav-end">
+                  <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+                </span>
+              </a>
 
-        
+            <ul class="sidebar-sub-nav collapse" id="navArchive">
+
+                <li class="sidebar-nav-item">
+                    <a href="{{ route('students.archive') }}" class="sidebar-nav-link">
+                      <span class="sidebar-nav-abbr">
+                        ST
+                      </span>
+                      <span class="sidebar-nav-name">
+                       Archive Student
+                      </span>
+                    </a>
+                  </li>
+
+
+                <li class="sidebar-nav-item">
+                    <a href="{{ route('instructors.archive') }}" class="sidebar-nav-link">
+                      <span class="sidebar-nav-abbr">
+                        IN
+                      </span>
+                      <span class="sidebar-nav-name">
+                        Instructors Archive
+                      </span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
+
 
             <!-- <li class="sidebar-nav-item">
               <a href="./layouts/form_advanced.html" class="sidebar-nav-link">
