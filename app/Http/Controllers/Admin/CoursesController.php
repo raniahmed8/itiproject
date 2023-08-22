@@ -112,39 +112,29 @@ class CoursesController extends Controller
     }
 
     public function archive(){
-<<<<<<< HEAD
+
         // return $dept;
         $data = course::onlyTrashed()->get();
         return view('admin.courses.archive',['data'=>$data]);
-=======
-        $data= course::onlyTrashed()->select('id','name','duration','discribtion')->get();
-        return view('admin\courses\archive',['data'=>$data]);
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
+
     }
 
     public function restore($id){
         $course=course::withTrashed()->findOrFail($id);
         $course->restore();
-<<<<<<< HEAD
+
        return redirect()->back()->with('msg','Restored successfully..');
 
-=======
-       return redirect()->back()->with('msg','Restored successsfully.....');
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
+
     }
 
     public function deleteArchive($id){
         $course=course::withTrashed()->findOrFail($id);
         $course->forceDelete();
-<<<<<<< HEAD
+
         return redirect()->back()->with('msg','Deleted successfully..');
     }
-=======
-        return redirect()->back()->with('msg','Deleted successsfully.....');
 
-        }
-
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
 }
 
 

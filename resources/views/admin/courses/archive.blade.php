@@ -1,9 +1,5 @@
 @extends('layouts.admin.master')
-<<<<<<< HEAD
-@section('title','All Courses')
-=======
 @section('title','All archived Courses')
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
 <div class="adminx-content">
     @section('bread-crumb')
             <!-- BreadCrumb -->
@@ -11,11 +7,7 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Tables</a></li>
-<<<<<<< HEAD
-                <li class="breadcrumb-item active  aria-current="page">All courses</li>
-=======
                 <li class="breadcrumb-item active  aria-current="page">All archived Courses</li>
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
               </ol>
             </nav>
            @endsection
@@ -24,11 +16,7 @@
                 @if (Session::has('msg'))
                 <div class="alert alert-success"> {{ Session::get('msg') }}</div>
                 @endif
-<<<<<<< HEAD
-              <h1>Cource Tables</h1>
-=======
               <h1> Archived Courses Tables</h1>
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
             </div>
             <div class="row">
               <div class="col">
@@ -44,16 +32,11 @@
                             </label>
                           </th>
                           <th scope="col">ID</th>
-<<<<<<< HEAD
                           <th scope="col"> Name</th>
                           <th scope="col">duration</th>
                           <th scope="col">discribtion</th>
 
-=======
-                          <th scope="col">Name</th>
-                          <th scope="col">Duration</th>
-                          <th scope="col">Describtion</th>
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
+                         
 
                         </tr>
                       </thead>
@@ -71,21 +54,6 @@
                             <td>{{ $value['name'] }}</td>
                             <td>{{ $value['duration'] }}</td>
                             <td>{{ $value['discribtion'] }}</td>
-<<<<<<< HEAD
-
-                          <td>
-                            <form action="{{ route('courses.restore',$value['id']) }}" method="post" style="display: inline-block">
-                                @csrf
-                                <input type="submit" value="restore" class="btn btn-sm btn-success">
-                            </form>
-                            <form action="{{ route('courses.deleteArchive',$value['id']) }}" method="post" style="display: inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" value="delete" class="btn btn-sm btn-danger">
-                            </form>
-
-            
-=======
                           <td>
                             <form style="display: inline-block" action="{{ route('courses.restore',$value['id']) }}" method="POST">
                                 @csrf
@@ -97,7 +65,6 @@
                             @method('DELETE')
                             <input type="submit" value="delete" class="btn btn-danger">
                             </form>
->>>>>>> 6c87283df0caa94a590ba33090a28048c30cf67c
                           </td>
                         </tr>
                         @empty
