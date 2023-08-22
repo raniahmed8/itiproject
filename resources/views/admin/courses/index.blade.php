@@ -7,7 +7,7 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active  aria-current="page">All courses</li>
+                <li class="breadcrumb-item active"  aria-current="page">All courses</li>
               </ol>
             </nav>
            @endsection
@@ -16,7 +16,7 @@
                 @if (Session::has('msg'))
                 <div class="alert alert-success"> {{ Session::get('msg') }}</div>
                 @endif
-              <h1>Cource Tables</h1>
+              <h1>Course Tables</h1>
             </div>
             <div class="row">
               <div class="col">
