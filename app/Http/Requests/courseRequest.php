@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InstructorRequest extends FormRequest
+class courseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class InstructorRequest extends FormRequest
         return [
             'id'=>'numeric|required',
             'name'=>'required|max:40|min:2|string',
-            'duration'=>'max:40|min:2|string',
-            'discribtion'=>'max:40|min:2|string',
+            // 'duration'=>'string',
+            // 'discribtion'=>'string',
            
         ];
     }

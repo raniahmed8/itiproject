@@ -53,18 +53,30 @@
                       <div class="form-group">
                         <label class="form-label" for="id">ID</label>
                         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter Id" name="id">
+                        @error('id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="name">course name</label>
                         <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Course Name" name="name">
+                        @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="dis">duration</label>
                         <input type="text" class="form-control" id="dis" aria-describedby="emailHelp" placeholder="Enter The describtion" name="duration">
+                        @error('duration')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="du">Describtion</label>
                         <input type="text" class="form-control" id="du" aria-describedby="emailHelp" placeholder="Enter duration" name="discribtion">
+                        @error('discribtion')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                      
                       <button type="submit" class="btn btn-primary">ADD</button>
