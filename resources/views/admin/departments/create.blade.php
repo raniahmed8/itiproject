@@ -7,7 +7,7 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                <li class="breadcrumb-item active  aria-current="page">ADD Department</li>
+                <li class="breadcrumb-item active"  aria-current="page">ADD Department</li>
               </ol>
             </nav>
            @endsection

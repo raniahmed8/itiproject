@@ -1,11 +1,3 @@
-{{-- @php
-  var_dump($data);
-  die();
-@endphp --}}
-
-
-
-
 @extends('layouts.admin.master')
 @section('title','All Departments')
 <div class="adminx-content">
@@ -15,7 +7,7 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active  aria-current="page">All Departments</li>
+                <li class="breadcrumb-item active"  aria-current="page">All Departments</li>
               </ol>
             </nav>
            @endsection
@@ -41,12 +33,12 @@
                           </th>
                           <th scope="col">ID</th>
                           <th scope="col">Name</th>
+                      
                           <th scope="col">Actions</th>
                         </tr>
                       </thead>
                        <tbody>
-                    
-                        @forelse ($data as $value)
+                        @forelse ($data as $Department)
                         <tr>
                           <th scope="row">
                             <label class="custom-control custom-checkbox m-0 p-0">
@@ -54,13 +46,15 @@
                               <span class="custom-control-indicator"></span>
                             </label>
                           </th>
-                            <td>{{ $value['id'] }}</td>
-                            <td>{{ $value['name'] }}</td>
-                          <td> 
-                            <a href="{{ route('departments.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>
-                            <a href="{{ route('departments.edit',$value['id']) }}" class="btn btn-sm btn-success">Edit</a>
-                            {{-- <a href="{{ route('departments.show',$value['id']) }}" class="btn btn-sm btn-danger">Delete</a> --}}
-                             <form action="{{ route('departments.destroy',$value['id']) }}" method="post" style="display: inline-block">
+                            <td>{{ $Department['id'] }}</td>
+                            <td>{{ $Department['name'] }}</td>
+                            
+
+                          
+                          <td>
+                            <a href="{{ route('departments.show',$Department['id']) }}" class="btn btn-sm btn-primary">show</a>
+                            <a href="{{ route('departments.edit',$Department['id']) }}" class="btn btn-sm btn-success">Edit</a>
+                            <form action="{{ route('departments.destroy',$Department['id']) }}" method="post" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" value="delete" class="btn btn-sm btn-danger">
@@ -71,7 +65,7 @@
                             <tr>
                                 <td colspan="4">No Data</td>
                             </tr>
-                        @endforelse 
+                        @endforelse
                         </tbody>
                     </table>
                   </div>
