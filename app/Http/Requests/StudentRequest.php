@@ -28,7 +28,7 @@ class StudentRequest extends FormRequest
              'fname'=>'required|alpha|min:3|max:50',
              'lname'=>'required|alpha|min:3|max:50',
              'age'=>'required|digits:2',
-             'address'=>'alpha|max:255'
+             'address'=>'required|max:255|min:3'
 
         ];
     }

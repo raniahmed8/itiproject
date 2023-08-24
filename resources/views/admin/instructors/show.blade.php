@@ -40,9 +40,14 @@
                         <tr>
                             <th>Courses</th>
                             <td>
-                                @foreach ($instructor->courses as $course)
+                              <ul>
+                                @forelse ($instructor->courses as $course)
                                     <li>{{ $course->name}}</li>
-                                @endforeach
+                                 @empty
+                                    <li>no data</li>
+
+                                @endforelse
+                              </ul>
                             </td>
                         </tr>
                           <th scope="col">Salary</th>

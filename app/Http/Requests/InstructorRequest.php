@@ -24,7 +24,7 @@ class InstructorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|max:40|min:4|string',
+            'name'=>'required|max:40|min:3|string',
             'address'=>'required|max:255|min:3',
             'salary'=>'required',
             'hourRate'=>'numeric|required',

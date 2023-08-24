@@ -12,7 +12,7 @@ class Topic extends Model
     use SoftDeletes;
     protected $fillable = ['id','name'];
     public function courses(){ //
-        return $this->hasMany(course::class,'id');
+        return $this->hasMany(course::class,'top_id');
     }
 
 }

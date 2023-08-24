@@ -131,16 +131,7 @@
               </a>
             </li>
             </li>
-            <li class="sidebar-nav-item">
-                <a href="{{ route('courses.archive') }}" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    ST
-                  </span>
-                  <span class="sidebar-nav-name">
-                   Archive Courses
-                  </span>
-                </a>
-              </li>
+
             <li class="sidebar-nav-item">
               <a href="{{ route('departments.create') }}" class="sidebar-nav-link">
                 <span class="sidebar-nav-abbr">
@@ -184,23 +175,21 @@
                         ST
                       </span>
                       <span class="sidebar-nav-name">
-                       Archive Student
+                        Students Archive
                       </span>
                     </a>
                   </li>
 
-
-                <li class="sidebar-nav-item">
-                    <a href="{{ route('instructors.archive') }}" class="sidebar-nav-link">
+                  <li class="sidebar-nav-item">
+                    <a href="{{ route('topics.archive') }}" class="sidebar-nav-link">
                       <span class="sidebar-nav-abbr">
-                        IN
+                        TO
                       </span>
                       <span class="sidebar-nav-name">
-                        Instructors Archive
+                        topics Archive
                       </span>
                     </a>
                   </li>
-
                   <li class="sidebar-nav-item">
                     <a href="{{ route('courses.archive') }}" class="sidebar-nav-link">
                       <span class="sidebar-nav-abbr">
@@ -221,17 +210,21 @@
                       </span>
                     </a>
                   </li>
-
-                  <li class="sidebar-nav-item">
-                    <a href="{{ route('topics.archive') }}" class="sidebar-nav-link">
+                <li class="sidebar-nav-item">
+                    <a href="{{ route('instructors.archive') }}" class="sidebar-nav-link">
                       <span class="sidebar-nav-abbr">
-                        TP
+                        IN
                       </span>
                       <span class="sidebar-nav-name">
-                        topics Archive
+                        Instructors Archive
                       </span>
                     </a>
                   </li>
+
+
+
+
+
 
 
                 </ul>

@@ -34,7 +34,7 @@
                           <th scope="col">ID</th>
                           <th scope="col"> Name</th>
                           <th scope="col">duration</th>
-                          <th scope="col">discribtion</th>
+                          {{-- <th scope="col">discribtion</th> --}}
 
 
                         </tr>
@@ -52,7 +52,7 @@
                             <td>{{ $value['id'] }}</td>
                             <td>{{ $value['name'] }}</td>
                             <td>{{ $value['duration'] }}</td>
-                            <td>{{ $value['discribtion'] }}</td>
+                            {{-- <td>{{ $value['discribtion'] }}</td> --}}
 
                           <td>
                           <a href="{{ route('courses.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>

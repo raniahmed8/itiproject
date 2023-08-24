@@ -84,14 +84,14 @@
                                 </label>
                           <th>Instructors</th>
                           <td>
+                            <ul>
                             @forelse ( $data->instructors as $instructor )
                             <li>{{ $instructor->name }}</li>
                             @empty
                                <span>no data</span>
                             @endforelse
-                              {{-- @foreach ($data->instructors as $instructor)
-                                  <li>{{ $instructor->name }}</li>
-                              @endforeach --}}
+                              
+                            </ul>
                           </td>
                       </tr>
 
