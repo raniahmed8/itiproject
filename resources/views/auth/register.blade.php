@@ -1,10 +1,13 @@
-<x-guest-layout>
+<!-- <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
+        <x-validation-errors class="mb-4" /> -->
+@extends('layouts.front.master')
+@section('title','Courses')
+@section('content')
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -58,3 +61,4 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+@endsection
