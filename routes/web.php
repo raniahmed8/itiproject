@@ -66,6 +66,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::delete('students/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('students.deleteArchive');
 
 // <<<<<<< HEAD
+    Route::get('instructors/createCourses/{id}',[InstructorController::class,'createCourses'])->name('instructors.createCourses');
+    Route::post('instructors/addCourses',[InstructorController::class,'addCourses'])->name('instructors.addCourses');
     Route::get('courses/archive',[CoursesController::class,'archive'])->name('courses.archive');
     Route::post('courses/restore/{id}',[coursesController::class,'restore'])->name('courses.restore');
     Route::delete('courses/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('courses.deleteArchive');
