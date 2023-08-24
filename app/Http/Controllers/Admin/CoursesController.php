@@ -43,7 +43,8 @@ class CoursesController extends Controller
          'id'=>$request->id,
          'name'=> $request->name,
          'duration'=> $request->duration,
-         'discribtion'=> $request->discribtion
+         'discribtion'=> $request->discribtion,
+        //  'top_id'=> $request->top_id
 
 
         ]);

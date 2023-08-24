@@ -49,6 +49,27 @@
                           <td>{{ $data->name }}</td>
 
                         </tr>
+                        <tr>
+                          <th scope="row">
+                            <label class="custom-control custom-checkbox m-0 p-0">
+                              <input type="checkbox" class="custom-control-input table-select-row">
+                              <span class="custom-control-indicator"></span>
+                            </label>
+                          </th>
+                          <th scope="col"> courses</th>
+                          <td>
+                            <ul>
+                              @forelse ($data->courses as $value)
+                              <li>{{ $value->name }}</li>
+                            
+                              @empty
+                              <li>no data</li>
+                                  
+                              @endforelse
+                            </ul>
+                             </td>
+
+                        </tr>
         
 
                         </tbody>

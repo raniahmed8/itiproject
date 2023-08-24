@@ -21,5 +21,11 @@ class course extends Model
         public function instructor(){ //
             return $this->belongsToMany(Instructor::class,'course_instructor','course_id','instructor_id','id','id');
         }
+        public function topic(){ //
+            return $this->belongsTo(Topic::class,'id');
+        }
+        public function students(){ //
+            return $this->belongsToMany(student::class);
+        }
 
 }

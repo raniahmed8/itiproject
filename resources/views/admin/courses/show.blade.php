@@ -70,6 +70,38 @@
                             <td>{{ $data->discribtion}}</td>
 
                           </tr>
+                          {{-- <tr>
+                            <th scope="row">
+                              <label class="custom-control custom-checkbox m-0 p-0">
+                                <input type="checkbox" class="custom-control-input table-select-row">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </th>
+                            <th scope="col">Topics</th>
+                            <td>{{ $data->topic->name}}</td>
+
+                          </tr> --}}
+                          <tr>
+                            <th scope="row">
+                              <label class="custom-control custom-checkbox m-0 p-0">
+                                <input type="checkbox" class="custom-control-input table-select-row">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </th>
+                            <th scope="col"> Students</th>
+                            <td>
+                              <ul>
+                                @forelse ($data->students as $value)
+                                <li>{{ $value->fname }}</li>
+                              
+                                @empty
+                                <li>no data</li>
+                                    
+                                @endforelse
+                              </ul>
+                               </td>
+  
+                          </tr>
                          
                     
 

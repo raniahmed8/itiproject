@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('duration', 255)->nullable();
             $table->string('discribtion', 255)->nullable();
             $table->timestamps();
+           
+
         });
     }
 
