@@ -45,6 +45,11 @@ Route::get('/about', function () {
     return view('front.about');
 })->name('front.about');
 
+Route::get('/profile', function () {
+    return view('front.profile');
+})->name('front.profile');
+
+
 Route::get('/contact', function () {
     return view('front.contact');
 })->name('front.contact');
@@ -66,8 +71,13 @@ Route::group(['prefix'=>'admin'],function(){
     Route::delete('students/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('students.deleteArchive');
 
 // <<<<<<< HEAD
+<<<<<<< HEAD
+=======
     Route::get('instructors/createCourses/{id}',[InstructorController::class,'createCourses'])->name('instructors.createCourses');
     Route::post('instructors/addCourses',[InstructorController::class,'addCourses'])->name('instructors.addCourses');
+
+
+>>>>>>> 68863aba2316561907b59c7a9de2cb281140d2eb
     Route::get('courses/archive',[CoursesController::class,'archive'])->name('courses.archive');
     Route::post('courses/restore/{id}',[coursesController::class,'restore'])->name('courses.restore');
     Route::delete('courses/deleteArchive/{id}',[StudentController::class,'deleteArchive'])->name('courses.deleteArchive');
@@ -78,6 +88,19 @@ Route::group(['prefix'=>'admin'],function(){
     Route::delete('instructors/deleteArchive/{id}',[InstructorController::class,'deleteArchive'])->name('instructors.deleteArchive');
 
 
+<<<<<<< HEAD
+     Route::resources([
+    'instructors'=>InstructorController::class,
+    'students'=>StudentController::class,
+    // 'departments'=>DepartmentController::class,
+    'topics'=>TopicController::class,
+    'departments'=>DepartmentController::class,
+    'courses'=>CoursesController::class,
+    // 'courseInstructor'=>CourseInstructorController::class,
+    'courseInstructor'=>CourseInstructorController::class,
+]);
+
+=======
     Route::get('departments/archive',[DepartmentController::class,'archive'])->name('departments.archive');
     Route::post('departments/restore/{id}',[DepartmentController::class,'restore'])->name('departments.restore');
     Route::delete('departments/deleteArchive/{id}',[DepartmentController::class,'deleteArchive'])->name('departments.deleteArchive');
@@ -98,8 +121,10 @@ Route::group(['prefix'=>'admin'],function(){
         // 'courseInstructor'=>CourseInstructorController::class,
         'courseInstructor'=>CourseInstructorController::class,
     ]);
+>>>>>>> 68863aba2316561907b59c7a9de2cb281140d2eb
 
 });
+
 // Route::get('departments', function () {
 //     return view('admin.departments.index');
 // })->name('departments.index');
