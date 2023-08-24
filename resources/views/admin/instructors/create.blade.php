@@ -82,7 +82,7 @@
                       <div class="form-group">
                         <label class="form-label" for="exampleInputPassword1">Department</label>
                         <select name="department_id">
-                            <option value="none" >select department</option>
+                            <option value="" >select department</option>
                             @foreach ( $deptData as $data)
                                <option value="{{ $data['id'] }}" >{{ $data['name'] }}</option>
                             @endforeach

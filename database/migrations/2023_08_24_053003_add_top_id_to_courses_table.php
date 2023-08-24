@@ -14,9 +14,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('courses', function (Blueprint $table) {
-            // $table->bigInteger("top_id",false,true);
-            $table->foreign('top_id')->references('id')->on('topics');
-            //
+            $table->bigInteger("top_id",false,true)->nullable();
+            $table->foreign('top_id')->references('id')->on('topics')->onDelete('SET NULLL')->onUpdate('CASCADE');
+
         });
     }
 

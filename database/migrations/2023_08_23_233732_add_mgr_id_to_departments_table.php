@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('departments', function (Blueprint $table) {
             $table->bigInteger("mgr_id",false,true)->nullable();
             $table->text("hiringDare")->nullable();
-            $table->foreign('mgr_id')->references('id')->on('instructors');
+            $table->foreign('mgr_id')->references('id')->on('instructors')->onDelete('SET NULLL')->onUpdate('CASCADE');
         });
     }
 

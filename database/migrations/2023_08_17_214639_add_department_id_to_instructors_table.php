@@ -15,8 +15,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('instructors', function (Blueprint $table) {
-            $table->bigInteger("department_id",false,true);
-            $table->foreign('department_id')->references('id')->on('departments');
+            $table->bigInteger("department_id",false,true)->nullable();
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('SET NULLL')->onUpdate('CASCADE');
         });
     }
 

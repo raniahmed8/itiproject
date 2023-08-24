@@ -60,10 +60,10 @@ class DepartmentController extends Controller
     public function show($id)
     {
         $data =Department::findorfail($id);
-        $mgrID = $data->mgr_id;
-        $mgr=Instructor::findorfail($mgrID);
+        // $mgrID = $data->mgr_id;
+        // $mgr=Instructor::findorfail($mgrID);
 
-        return view('admin.departments.show',['data'=>$data,'mgr'=>$mgr]);
+        return view('admin.departments.show',['data'=>$data]);
     }
 
     /**

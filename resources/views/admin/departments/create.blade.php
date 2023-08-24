@@ -59,7 +59,7 @@
                       <div class="form-group">
                         <label class="form-label" for="exampleInputPassword1">Manger</label>
                         <select name="mgr_id">
-                            <option value="none" >select manager</option>
+                            <option value= "" >select manager</option>
                             @foreach ( $instData as $data)
                                <option value="{{ $data['id'] }}" >{{ $data['name'] }}</option>
                             @endforeach

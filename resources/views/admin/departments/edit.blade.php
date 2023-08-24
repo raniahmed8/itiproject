@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label class="form-label" for="exampleInputPassword1">Manager</label>
                         <select name="mgr_id">
-                            <option value="none" >select manger</option>
+                            <option value = "" >select manger</option>
                             @foreach ( $instData as $inst)
                                 <option value="{{ $inst['id'] }}"
                                 @if($data->mgr_id == $inst->id)

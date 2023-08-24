@@ -22,7 +22,7 @@ class Instructor extends Model
             return $this->belongsTo(Department::class,'department_id'); // one
          }
         public function Mdepartment(){
-            return $this->belongsTo(Department::class,'id'); // one
+            return $this->belongsTo(Department::class,'mgr_id'); // one
         }
 
 

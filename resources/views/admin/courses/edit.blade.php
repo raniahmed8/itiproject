@@ -52,11 +52,6 @@
                     @csrf
                     @method('PUT')
                       <div class="form-group">
-                        <label class="form-label" for="id">ID</label>
-                        <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter Id" name="id"
-                        value="{{ $data->id }}">
-                      </div>
-                      <div class="form-group">
                         <label class="form-label" for="name">Name</label>
                         <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" name="name"
                         value="{{ $data->name }}">
@@ -71,8 +66,25 @@
                         <input type="text" class="form-control" id="discribtion" aria-describedby="emailHelp" placeholder="Enter describtion" name="discribtion"
                         value="{{ $data->discribtion }}">
                       </div>
-                    
+                      <div class="form-group">
+                        <label class="form-label" for="exampleInputPassword1">Topic</label>
+                        <select name="top_id">
+                            <option value="" >select topic</option>
+                            @foreach ( $toptData as $top)
+                               <option value="{{ $top['id'] }}"
+                               @if($data->department_id == $top->id)
+                                selected
+                                @endif>
+                                {{ $top['name'] }}</option>
+                            @endforeach
+                        </select>
+                        @error('top_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
+
                       </div>
+
 
                       <button type="submit" class="btn btn-primary">Edit</button>
                     </form>

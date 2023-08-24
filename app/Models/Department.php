@@ -12,13 +12,13 @@ class Department extends Model
     use SoftDeletes;
     protected $fillable = ['name','mgr_id','hiringDare'];
 
-    public function instructor(){
-        return $this->hasMany(Instructor::class,'id');
+    public function instructors(){
+        return $this->hasMany(Instructor::class,'department_id',);
     }
 
-    public function Minstructor(){
+    public function instructor(){
 
-        return $this->hasOne(Instructor::class,'mgr_id'); // one
+        return $this->hasOne(Instructor::class ,'id','mgr_id'); // one
     }
 
 }

@@ -16,13 +16,13 @@ class course extends Model
     //     "duration",
     //     "discribtion"
     //     ];
-    protected $fillable = ['id','name','duration','discribtion'];
+    protected $fillable = ['name','duration','discribtion','top_id'];
 
         public function instructor(){ //
             return $this->belongsToMany(Instructor::class,'course_instructor','course_id','instructor_id','id','id');
         }
         public function topic(){ //
-            return $this->belongsTo(Topic::class,'id');
+            return $this->belongsTo(Topic::class,'top_id');
         }
         public function students(){ //
             return $this->belongsToMany(student::class);

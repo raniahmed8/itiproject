@@ -55,13 +55,15 @@
                             <td>{{ $value['age'] }}</td>
                             <td>{{ $value['address'] }}</td>
                           <td>
-                            <a href="{{ route('students.show',$value['id']) }}" class="btn btn-primary">show</a>
-                            <a href="{{ route('students.edit',$value['id']) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('students.show',$value['id']) }}" class="btn btn-sm btn-primary">show</a>
+                            <a href="{{ route('students.edit',$value['id']) }}" class="btn btn-sm btn-success">Edit</a>
                             <form style="display: inline-block" action="{{ route('students.destroy',$value['id']) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="delete" class="btn btn-danger">
+                            <input type="submit" value="delete" class="btn btn-sm btn-danger">
                             </form>
+                            <a href="{{ route('students.createCourses',$value['id']) }}" class="btn btn-sm btn-success">Courses</a>
+
                           </td>
                         </tr>
                         @empty

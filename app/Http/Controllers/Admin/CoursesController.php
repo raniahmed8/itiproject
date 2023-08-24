@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\course;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\courseRequest;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -27,8 +28,9 @@ class CoursesController extends Controller
      */
     public function create()
     {
+        $topData=Topic::all();
 
-        return view('admin.courses.create');
+        return view('admin.courses.create',['topData'=>$topData]);
     }
 
     /**
@@ -39,13 +41,12 @@ class CoursesController extends Controller
      */
     public function store(courseRequest $request)
     {
+        // return $request;
         course::create([
-         'id'=>$request->id,
          'name'=> $request->name,
          'duration'=> $request->duration,
          'discribtion'=> $request->discribtion,
-        //  'top_id'=> $request->top_id
-
+         'top_id'=> $request->top_id
 
         ]);
         return redirect()->back()->with('msg','Added successsfully.....');
@@ -61,19 +62,17 @@ class CoursesController extends Controller
     public function show($id)
     {
         $data = course::findorfail($id);
+      
         return view('admin.courses.show',['data'=>$data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
+        $topData=Topic::all();
+
         $data = course::findorfail($id);
-        return view('admin.courses.edit',['data'=>$data]);
+        return view('admin.courses.edit',['data'=>$data,'topData'=>$topData]);
     }
 
     /**
@@ -83,15 +82,15 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(courseRequest $request, $id)
     {
         $course=course::findorfail($id);
 
          $course->update([
-         'id'=>$request->id,
          'name'=> $request->name,
          'duration'=> $request->duration,
-         'discribtion'=> $request->discribtion
+         'discribtion'=> $request->discribtion,
+         'top_id'=> $request->top_id
 
          ]);
         //   return redirect()->route('instructors.edit',$instructor['id'])->with('msg','updated..');

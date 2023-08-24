@@ -14,7 +14,7 @@
            @endsection
            @section('content')
             <div class="pb-3">
-              <h1>Department number {{ $data->id }} Table</h1>
+              <h1>{{ $data->name }} Department Table</h1>
             </div>
             <div class="row">
               <div class="col">
@@ -49,28 +49,51 @@
                           <td>{{ $data->name }}</td>
 
                         </tr>
+                        @if (isset($data->instructor->name ))
+                            <tr>
+                                <th scope="row">
+                                <label class="custom-control custom-checkbox m-0 p-0">
+                                    <input type="checkbox" class="custom-control-input table-select-row">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                                </th>
+                                <th scope="col"> Manager</th>
+                                <td>{{ $data->instructor->name }}</td>
+
+                            </tr>
+
+
+                            <tr>
+                                <th scope="row">
+                                <label class="custom-control custom-checkbox m-0 p-0">
+                                    <input type="checkbox" class="custom-control-input table-select-row">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                                </th>
+                                <th scope="col"> Hiring Date</th>
+                                <td>{{ $data->hiringDare }}</td>
+
+                            </tr>
+                        @endif
+
                         <tr>
                             <th scope="row">
-                              <label class="custom-control custom-checkbox m-0 p-0">
-                                <input type="checkbox" class="custom-control-input table-select-row">
-                                <span class="custom-control-indicator"></span>
-                              </label>
-                            </th>
-                            <th scope="col"> Manager</th>
-                            <td>{{ $mgr->name }}</td>
-
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <label class="custom-control custom-checkbox m-0 p-0">
-                                <input type="checkbox" class="custom-control-input table-select-row">
-                                <span class="custom-control-indicator"></span>
-                              </label>
-                            </th>
-                            <th scope="col"> Hiring Date</th>
-                            <td>{{ $data->hiringDare }}</td>
-
-                          </tr>
+                                <label class="custom-control custom-checkbox m-0 p-0">
+                                    <input type="checkbox" class="custom-control-input table-select-row">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                          <th>Instructors</th>
+                          <td>
+                            @forelse ( $data->instructors as $instructor )
+                            <li>{{ $instructor->name }}</li>
+                            @empty
+                               <span>no data</span>
+                            @endforelse
+                              {{-- @foreach ($data->instructors as $instructor)
+                                  <li>{{ $instructor->name }}</li>
+                              @endforeach --}}
+                          </td>
+                      </tr>
 
 
                         </tbody>

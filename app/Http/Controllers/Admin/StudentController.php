@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentRequest;
+use App\Models\course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -132,4 +133,16 @@ class StudentController extends Controller
 
         }
 
+        public function createCourses($id){
+            $courses=course::select('id','name')->get();
+            return view('admin.students.addCourses',['courses'=>$courses ,'id'=>$id]);
+        }
+
+
+        public function addCourses(Request $request){
+            // return $request;
+            $student=Student::findorfail($request->student_id);
+            $student->courses()->syncWithoutDetaching($request->courses);
+            return redirect()->back()->with('msg','added successfully..');
+      }
 }

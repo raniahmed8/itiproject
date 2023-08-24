@@ -35,7 +35,7 @@ class InstructorController extends Controller
      */
     public function create()
     {
-        $deptData=Department::select('id','name')->get(); // select * from employees
+        $deptData=Department::select('id','name')->get();
         return view('admin.instructors.create',['deptData'=>$deptData]);
 
 
@@ -72,10 +72,8 @@ class InstructorController extends Controller
     {
 
         $instructor=Instructor::findorfail($id);
-        $deptID = $instructor->department_id;
-        $dept=Department::findorfail($deptID);
 
-        return view('admin.instructors.show',['instructor'=>$instructor, 'dept' =>$dept]);
+        return view('admin.instructors.show',['instructor'=>$instructor]);
 
 
 

@@ -34,7 +34,7 @@
                        </tr>
                        <tr>
                         <th scope="col">Department</th>
-                        <td>{{ $dept['name'] }}</td>
+                        <td>{{ $instructor->department['name'] }}</td>
                        </tr>
                        <tr>
                         <tr>

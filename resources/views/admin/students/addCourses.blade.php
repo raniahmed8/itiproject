@@ -1,5 +1,6 @@
+
 @extends('layouts.admin.master')
-@section('title','ADD Courses')
+@section('title','ADD Insteuctor')
 <div class="adminx-content">
     @section('bread-crumb')
             <!-- BreadCrumb -->
@@ -7,23 +8,22 @@
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                <li class="breadcrumb-item active  aria-current="page">ADD courses</li>
+                <li class="breadcrumb-item active  aria-current="page">ADD courses to instructor</li>
               </ol>
             </nav>
            @endsection
            @section('content')
             <div class="pb-3">
-                @if (Session::has('msg'))
-                <div class="alert alert-success"> {{ Session::get('msg') }}</div>
-                @endif
-              <h1>Courses form</h1>
+              <h1>student courses form</h1>
             </div>
-
+            @if(Session::has('msg'))
+            <div class="alert alert-success">{{ Session::get('msg') }}</div>
+            @endif
             <div class="row">
               <div class="col-lg-6">
                 <div class="card mb-grid">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <div class="card-header-title">Cources form</div>
+                    <div class="card-header-title">add courses form</div>
 
                     <nav class="card-header-actions">
                       <a class="card-header-action" data-toggle="collapse" href="#card1" aria-expanded="false" aria-controls="card1">
@@ -47,45 +47,23 @@
                       </a>
                     </nav>
                   </div>
-                  <div class="card-body collapse show" id="card1">
-                    <form action="{{ route('courses.store') }}" enctype="multipart/form-data" method="post">
-                    @csrf
 
-                      <div class="form-group">
-                        <label class="form-label" for="name">course name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Course Name" name="name">
-                        @error('name')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label" for="dis">duration</label>
-                        <input type="text" class="form-control" id="dis" aria-describedby="emailHelp" placeholder="Enter The describtion" name="duration">
-                        @error('duration')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label" for="du">Describtion</label>
-                        <input type="text" class="form-control" id="du" aria-describedby="emailHelp" placeholder="Enter duration" name="discribtion">
-                        @error('discribtion')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label" for="exampleInputPassword1">Topic</label>
-                        <select name="top_id">
-                            <option value="" >select topic</option>
-                            @foreach ( $topData as $data)
-                               <option value="{{ $data['id'] }}" >{{ $data['name'] }}</option>
-                            @endforeach
-                        </select>
-                        @error('top_id')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <button type="submit" class="btn btn-primary">ADD</button>
-                    </form>
+                  <div class="card-body collapse show" id="card1">
+                    <form action="{{ route('students.addCourses') }}"  method="post">
+                        @csrf
+                        <input type="hidden" value="{{ $id }}" name="student_id">
+                        <div class="form-group">
+                            <label class="form-label" for="exampleInputPassword1">Course</label>
+                            <select name="courses[]"  class="form-control"  multiple>
+                                @foreach ( $courses as $course)
+                                   <option value="{{ $course['id'] }}" >{{ $course['name'] }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
+                          <button type="submit" class="btn btn-primary">ADD</button>
+                        </form>
                   </div>
                 </div>
           @endsection

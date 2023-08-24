@@ -31,8 +31,6 @@
 
                           <th scope="col">ID</th>
                           <td>{{ $data->id }}</td>
-
-
                         </tr>
 
 
@@ -70,18 +68,18 @@
                             <td>{{ $data->discribtion}}</td>
 
                           </tr>
-                          {{-- <tr>
+                          <tr>
                             <th scope="row">
                               <label class="custom-control custom-checkbox m-0 p-0">
                                 <input type="checkbox" class="custom-control-input table-select-row">
                                 <span class="custom-control-indicator"></span>
                               </label>
                             </th>
-                            <th scope="col">Topics</th>
+                            <th scope="col">Topic</th>
                             <td>{{ $data->topic->name}}</td>
 
-                          </tr> --}}
-                          <tr>
+                          </tr>
+                          {{-- <tr>
                             <th scope="row">
                               <label class="custom-control custom-checkbox m-0 p-0">
                                 <input type="checkbox" class="custom-control-input table-select-row">
@@ -93,17 +91,17 @@
                               <ul>
                                 @forelse ($data->students as $value)
                                 <li>{{ $value->fname }}</li>
-                              
+
                                 @empty
                                 <li>no data</li>
-                                    
+
                                 @endforelse
                               </ul>
                                </td>
-  
-                          </tr>
-                         
-                    
+
+                          </tr> --}}
+
+
 
                         </tbody>
                     </table>
