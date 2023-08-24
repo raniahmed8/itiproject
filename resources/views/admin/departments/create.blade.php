@@ -51,13 +51,24 @@
                     <form action="{{ route('departments.store') }}" enctype="multipart/form-data" method="post">
                     @csrf
                       <div class="form-group">
-                        <label class="form-label" for="exampleInputEmail1">ID</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Id" name="id">
-                      </div>
-                      <div class="form-group">
                         <label class="form-label" for="exampleInputEmail1"> Name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" name="name">
 
+
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="exampleInputPassword1">Manger</label>
+                        <select name="mgr_id">
+                            <option value="none" >select manager</option>
+                            @foreach ( $instData as $data)
+                               <option value="{{ $data['id'] }}" >{{ $data['name'] }}</option>
+                            @endforeach
+                        </select>
+
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="exampleInputEmail1"> Hiring Date</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Hiring Date" name="hiringDare">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
 
                       </div>

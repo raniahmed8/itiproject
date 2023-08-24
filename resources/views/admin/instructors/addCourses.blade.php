@@ -59,17 +59,8 @@
                                    <option value="{{ $course['id'] }}" >{{ $course['name'] }}</option>
                                 @endforeach
                             </select>
-                            @error('courses')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+
                         </div>
-                          <div class="form-group">
-                            <label class="form-label" for="exampleInputEmail1">Evaluation</label>
-                            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Evaluation" name="evaluation">
-                            @error('evaluation')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                          </div>
 
                           <button type="submit" class="btn btn-primary">ADD</button>
                         </form>
