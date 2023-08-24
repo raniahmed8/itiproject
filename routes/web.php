@@ -79,9 +79,6 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('instructors/restore/{id}',[InstructorController::class,'restore'])->name('instructors.restore');
     Route::delete('instructors/deleteArchive/{id}',[InstructorController::class,'deleteArchive'])->name('instructors.deleteArchive');
 
-    Route::get('courses/archive',[CoursesController::class,'archive'])->name('courses.archive');
-    Route::post('courses/restore/{id}',[CoursesController::class,'restore'])->name('courses.restore');
-    Route::delete('courses/deleteArchive/{id}',[CoursesController::class,'deleteArchive'])->name('courses.deleteArchive');
 
     Route::get('departments/archive',[DepartmentController::class,'archive'])->name('departments.archive');
     Route::post('departments/restore/{id}',[DepartmentController::class,'restore'])->name('departments.restore');

@@ -47,26 +47,38 @@
                       </a>
                     </nav>
                   </div>
-                  <div class="card-body collapse show" id="card1">
+                <div class="card-body collapse show" id="card1">
                     <form action="{{ route('departments.update', $data->id) }}" enctype="multipart/form-data" method="post">
                     @csrf
                     @method('PUT')
-                      <div class="form-group">
-                        <label class="form-label" for="exampleInputEmail1">ID</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Id" name="id"
-                        value="{{ $data->id }}">
-                      </div>
-                      <div class="form-group">
+
+                    <div class="form-group">
                         <label class="form-label" for="exampleInputEmail1"> Name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" name="name"
                         value="{{ $data->name }}">
                       </div>
 
-                      <div class="form-group">
 
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputPassword1">Manager</label>
+                        <select name="mgr_id">
+                            <option value="none" >select manger</option>
+                            @foreach ( $instData as $inst)
+                                <option value="{{ $inst['id'] }}"
+                                @if($data->mgr_id == $inst->id)
+                                selected
+                                @endif>
+                                {{ $inst['name'] }}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputEmail1"> Hiring Date</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Hiring Date" name="hiringDare" value="{{ $data->hiringDare }}">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
 
-                      </div>
+                    </div>
 
                       <button type="submit" class="btn btn-primary">Edit</button>
                     </form>

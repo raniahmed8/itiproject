@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('course_instructor', function (Blueprint $table) {
             $table->bigInteger('course_id',false,true);
             $table->bigInteger('instructor_id',false,true);
-            $table->string('evaluation',50)->nullable();
             $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('instructor_id')->references('id')->on('instructors');
             $table->primary(['course_id','instructor_id']);

@@ -159,8 +159,8 @@ class InstructorController extends Controller
 
     public function addCourses(Request $request){
         // return $request;
-        $instructor=Instructor::findorfail($request->id);
+        $instructor=Instructor::findorfail($request->instructor_id);
         $instructor->courses()->syncWithoutDetaching($request->courses);
-        return back();
+        return redirect()->back()->with('msg','added successfully..');
   }
 }

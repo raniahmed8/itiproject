@@ -10,10 +10,15 @@ class Department extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['id','name'];
+    protected $fillable = ['name','mgr_id','hiringDare'];
 
     public function instructor(){
         return $this->hasMany(Instructor::class,'id');
+    }
+
+    public function Minstructor(){
+
+        return $this->hasOne(Instructor::class,'mgr_id'); // one
     }
 
 }
