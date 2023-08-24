@@ -49,7 +49,29 @@
                           <td>{{ $data->name }}</td>
 
                         </tr>
-        
+                        <tr>
+                            <th scope="row">
+                              <label class="custom-control custom-checkbox m-0 p-0">
+                                <input type="checkbox" class="custom-control-input table-select-row">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </th>
+                            <th scope="col"> Manager</th>
+                            <td>{{ $mgr->name }}</td>
+
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              <label class="custom-control custom-checkbox m-0 p-0">
+                                <input type="checkbox" class="custom-control-input table-select-row">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </th>
+                            <th scope="col"> Hiring Date</th>
+                            <td>{{ $data->hiringDare }}</td>
+
+                          </tr>
+
 
                         </tbody>
                     </table>

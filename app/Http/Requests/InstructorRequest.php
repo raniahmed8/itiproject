@@ -29,6 +29,8 @@ class InstructorRequest extends FormRequest
             'salary'=>'required',
             'hourRate'=>'numeric|required',
             'department_id'=>'numeric|required',
+            // 'course_id'=>'numeric',
+            // 'evaluation'=>'string|min:4|max:15'
 
         ];
     }

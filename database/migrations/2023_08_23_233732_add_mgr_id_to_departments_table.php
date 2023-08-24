@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::table('departments', function (Blueprint $table) {
+            $table->bigInteger("mgr_id",false,true)->nullable();
+            $table->text("hiringDare")->nullable();
+            $table->foreign('mgr_id')->references('id')->on('instructors');
         });
     }
 
@@ -21,8 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('courses', function (Blueprint $table) {
-            Schema::dropColumns('deleted_at');
+        Schema::table('departments', function (Blueprint $table) {
+            //
         });
     }
 };

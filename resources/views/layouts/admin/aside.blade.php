@@ -109,7 +109,7 @@
               </a>
 
             </li>
-    
+
             <li class="sidebar-nav-item">
               <a href="{{ route('topics.create') }}" class="sidebar-nav-link">
                 <span class="sidebar-nav-abbr">
@@ -200,6 +200,39 @@
                       </span>
                     </a>
                   </li>
+
+                  <li class="sidebar-nav-item">
+                    <a href="{{ route('courses.archive') }}" class="sidebar-nav-link">
+                      <span class="sidebar-nav-abbr">
+                        CO
+                      </span>
+                      <span class="sidebar-nav-name">
+                        courses Archive
+                      </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-nav-item">
+                    <a href="{{ route('departments.archive') }}" class="sidebar-nav-link">
+                      <span class="sidebar-nav-abbr">
+                        DE
+                      </span>
+                      <span class="sidebar-nav-name">
+                        departments Archive
+                      </span>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-nav-item">
+                    <a href="{{ route('topics.archive') }}" class="sidebar-nav-link">
+                      <span class="sidebar-nav-abbr">
+                        TP
+                      </span>
+                      <span class="sidebar-nav-name">
+                        topics Archive
+                      </span>
+                    </a>
+                  </li>
+
 
                 </ul>
               </li>

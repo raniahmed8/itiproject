@@ -18,12 +18,16 @@ class Instructor extends Model
         "department_id"
         ];
 
-    public function department(){
-       return $this->belongsTo(Department::class,'department_id'); // one
-    }
+        public function department(){
+            return $this->belongsTo(Department::class,'department_id'); // one
+         }
+        public function Mdepartment(){
+            return $this->belongsTo(Department::class,'id'); // one
+        }
+
 
     public function courses(){ //
-        return $this->belongsToMany(course::class,'course_instructor','instructor_id','course_id','id','id');
+        return $this->belongsToMany(course::class);
     }
 
 }
